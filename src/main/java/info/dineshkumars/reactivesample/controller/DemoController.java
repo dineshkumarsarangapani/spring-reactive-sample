@@ -9,6 +9,7 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.reactive.function.server.ServerResponse;
 import reactor.core.publisher.Mono;
@@ -36,9 +37,7 @@ public class DemoController {
 
   public Mono<ServerResponse> insertStudent(Mono<Student> student) {
     return student.flatMap(stg -> persistenceService.insertStudent(stg))
-        .doOnSuccess(success -> logger.info("Dinesh ---> " + success))
-        .doOnError(err -> logger.info("Error ----> " + err))
-        .flatMap(success -> ok().body(student, Student.class));
+        .flatMap(success -> ok().contentType(MediaType.APPLICATION_JSON).body(student, Student.class));
   }
 
 }
