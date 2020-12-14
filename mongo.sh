@@ -1,0 +1,1 @@
+docker run --name some-mongo -v mongo_db:/data/db -p 27017:27017 -d mongo

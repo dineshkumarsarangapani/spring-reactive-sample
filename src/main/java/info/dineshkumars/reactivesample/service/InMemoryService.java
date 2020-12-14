@@ -19,7 +19,7 @@ public class InMemoryService {
   static Map<String, Student> studentList;
 
   static List<String> names = Arrays
-      .asList("dinesh", "Sandy", "Kumar", "Sarangpani", "Divya", "Jagadeeswari");
+      .asList("dinesh", "Sandy", "Kumar", "Sarangapani", "Divya", "Jagadeeswari");
 
   static {
     studentList = names.stream()
